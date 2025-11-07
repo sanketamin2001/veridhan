@@ -3,7 +3,7 @@
 Official website for Veridhan Research & Advisory LLP, an investment research and advisory firm launching in 2026 after SEBI registration.
 
 ## 🌐 Live Site
-- **Production**: https://veridhan.in (coming soon)
+- **Production**: https://veridhan.tech (coming soon)
 - **GitHub Pages**: https://[username].github.io/veridhan-website
 
 ## 📋 About
