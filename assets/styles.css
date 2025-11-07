@@ -1,2 +1,44 @@
 
-... (CSS same as earlier but omitted for brevity) ...
+:root{
+  --bg:#0b1020;
+  --card:#121831;
+  --accent:#7aa2ff;
+  --text:#e9eefc;
+  --muted:#a8b3cf;
+  --warn:#f59e0b;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
+  background:linear-gradient(180deg,#0b1020 0%,#0f1733 60%,#0b1020 100%);
+  color:var(--text);}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#9ae6b4);display:grid;place-items:center;color:#0b1020;font-weight:900}
+.nav a{margin-left:18px;opacity:.9}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:28px 0}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.card.pad{padding:22px}
+.h1{font-size:40px;line-height:1.15;margin:0 0 12px}
+.p{color:var(--muted);font-size:17px;line-height:1.7}
+.btns{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04)}
+.btn.primary{background:var(--accent);color:#0b1020;border:none;font-weight:700}
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.notice{margin:16px 0;padding:14px 16px;border-left:6px solid var(--warn);background:rgba(245,158,11,.08);border-radius:12px}
+.kv{display:flex;gap:12px;align-items:center}
+.kv .badge{padding:6px 10px;border-radius:999px;background:rgba(122,162,255,.15);border:1px solid rgba(122,162,255,.35);font-size:12px}
+.footer{margin-top:38px;padding:22px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+.section{margin-top:30px}
+ul.clean{list-style:none;padding:0;margin:0}
+li.tile{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);margin-bottom:10px}
+.badge{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.18);opacity:.9}
+.contact-card a{word-break:break-all}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+}
