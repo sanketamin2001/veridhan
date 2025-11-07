@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+
+# 5. Update contact.html with clickable LinkedIn and email links, SEO meta tags
+contact_updated = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Veridhan Research & Advisory LLP</title>
     <meta name="description" content="Get in touch with Veridhan Research & Advisory. Contact us for vendor inquiries, compliance questions, or to join our 2026 waitlist.">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://veridhan.in/contact.html">
     <meta property="og:title" content="Contact Us | Veridhan Research & Advisory LLP">
     <meta property="og:description" content="Get in touch with Veridhan Research & Advisory. Contact us for vendor inquiries, compliance questions, or to join our 2026 waitlist.">
     <meta property="og:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://veridhan.in/contact.html">
     <meta name="twitter:title" content="Contact Us | Veridhan Research & Advisory LLP">
     <meta name="twitter:description" content="Get in touch with Veridhan Research & Advisory. Contact us for vendor inquiries, compliance questions, or to join our 2026 waitlist.">
     <meta name="twitter:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -56,21 +58,21 @@
             <div class="card pad contact-card">
                 <h3 style="font-size:20px;margin-bottom:12px;">📍 Address:</h3>
                 <p class="p">35A, Vaishnav Parivar, near Nehru Baugh, Anand 388001</p>
-
+                
                 <h3 style="font-size:20px;margin-bottom:12px;margin-top:20px;">📞 Phone:</h3>
                 <p class="p"><a href="tel:+918460902001">+91 8460902001</a></p>
-
+                
                 <h3 style="font-size:20px;margin-bottom:12px;margin-top:20px;">📧 Email:</h3>
                 <p class="p">
                     <a href="mailto:contact.veridhan@gmail.com?subject=Inquiry%20for%20Veridhan%20Research%20%26%20Advisory">contact.veridhan@gmail.com</a>
                 </p>
-
+                
                 <h3 style="font-size:20px;margin-bottom:12px;margin-top:20px;">💼 LinkedIn:</h3>
                 <p class="p">
                     <a href="https://www.linkedin.com/in/thesanketamin/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Connect with Sanket Amin →</a>
                 </p>
             </div>
-
+            
             <div>
                 <div class="card pad">
                     <h3 style="font-size:20px;margin-bottom:12px;">📬 Join Our Waitlist</h3>
@@ -81,7 +83,7 @@
                         <a href="mailto:contact.veridhan@gmail.com?subject=Waitlist%202026%20-%20Early%20Access" class="btn primary">Join Waitlist</a>
                     </div>
                 </div>
-
+                
                 <div class="card pad" style="margin-top: 18px;">
                     <h3 style="font-size:20px;margin-bottom:12px;">🤝 Partnership Inquiries</h3>
                     <p class="p" style="font-size:15px;">
@@ -104,4 +106,9 @@
     </footer>
 </div>
 </body>
-</html>
+</html>"""
+
+with open('contact.html', 'w', encoding='utf-8') as f:
+    f.write(contact_updated)
+
+print("✅ Updated contact.html")

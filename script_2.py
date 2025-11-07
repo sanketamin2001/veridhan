@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+
+# 2. Update index.html with AI mentions, SEO meta tags, and LinkedIn link
+index_updated = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veridhan Research & Advisory | Investment Research & Advisory Firm</title>
     <meta name="description" content="Investment research & advisory firm focused on clarity, ethics, and client-first perspective. Launching in 2026 after SEBI registration.">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://veridhan.in">
     <meta property="og:title" content="Veridhan Research & Advisory | Investment Research & Advisory Firm">
     <meta property="og:description" content="Investment research & advisory firm focused on clarity, ethics, and client-first perspective. Launching in 2026 after SEBI registration.">
     <meta property="og:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://veridhan.in">
     <meta name="twitter:title" content="Veridhan Research & Advisory | Investment Research & Advisory Firm">
     <meta name="twitter:description" content="Investment research & advisory firm focused on clarity, ethics, and client-first perspective. Launching in 2026 after SEBI registration.">
     <meta name="twitter:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -133,4 +135,9 @@
     </footer>
 </div>
 </body>
-</html>
+</html>"""
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(index_updated)
+
+print("✅ Updated index.html")

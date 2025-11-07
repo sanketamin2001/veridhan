@@ -1,4 +1,6 @@
-# Veridhan Research & Advisory LLP - Official Website
+
+# 7. Create README.md for GitHub Pages deployment
+readme_content = """# Veridhan Research & Advisory LLP - Official Website
 
 Official website for Veridhan Research & Advisory LLP, an investment research and advisory firm launching in 2026 after SEBI registration.
 
@@ -88,3 +90,9 @@ This website is for informational purposes only. Veridhan Research & Advisory LL
 ---
 
 © 2025 Veridhan Research & Advisory LLP. All rights reserved.
+"""
+
+with open('README.md', 'w', encoding='utf-8') as f:
+    f.write(readme_content)
+
+print("✅ Created README.md")

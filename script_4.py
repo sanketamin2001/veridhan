@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+
+# 4. Update services.html with AI mentions and SEO meta tags
+services_updated = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investment Advisory & Research Services | Veridhan Research & Advisory LLP</title>
     <meta name="description" content="Personalized investment advisory, independent research, and AI-enhanced analysis. Services launching in 2026 after SEBI authorization.">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://veridhan.in/services.html">
     <meta property="og:title" content="Investment Advisory & Research Services | Veridhan Research & Advisory LLP">
     <meta property="og:description" content="Personalized investment advisory, independent research, and AI-enhanced analysis. Services launching in 2026 after SEBI authorization.">
     <meta property="og:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://veridhan.in/services.html">
     <meta name="twitter:title" content="Investment Advisory & Research Services | Veridhan Research & Advisory LLP">
     <meta name="twitter:description" content="Personalized investment advisory, independent research, and AI-enhanced analysis. Services launching in 2026 after SEBI authorization.">
     <meta name="twitter:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -137,4 +139,9 @@
     </footer>
 </div>
 </body>
-</html>
+</html>"""
+
+with open('services.html', 'w', encoding='utf-8') as f:
+    f.write(services_updated)
+
+print("✅ Updated services.html")

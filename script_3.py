@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+
+# 3. Update about.html with AI mentions and SEO meta tags
+about_updated = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Veridhan Research & Advisory LLP</title>
     <meta name="description" content="Learn about Veridhan's research-first approach, values, and vision for combining human expertise with AI technology. Launching in 2026.">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://veridhan.in/about.html">
     <meta property="og:title" content="About Us | Veridhan Research & Advisory LLP">
     <meta property="og:description" content="Learn about Veridhan's research-first approach, values, and vision for combining human expertise with AI technology. Launching in 2026.">
     <meta property="og:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://veridhan.in/about.html">
     <meta name="twitter:title" content="About Us | Veridhan Research & Advisory LLP">
     <meta name="twitter:description" content="Learn about Veridhan's research-first approach, values, and vision for combining human expertise with AI technology. Launching in 2026.">
     <meta name="twitter:image" content="https://veridhan.in/assets/og-preview.png">
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -131,4 +133,9 @@
     </footer>
 </div>
 </body>
-</html>
+</html>"""
+
+with open('about.html', 'w', encoding='utf-8') as f:
+    f.write(about_updated)
+
+print("✅ Updated about.html")
