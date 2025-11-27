@@ -765,13 +765,31 @@
 
     <!-- CTA Section -->
     <section class="bot-cta">
-        <h2>Ready to Get Started?</h2>
-        <p>The Opening Range Bot will be available from December 2025. Join our waitlist to be notified at launch.</p>
-        <div class="cta-buttons">
-            <button class="btn-primary" a href="https://form.typeform.com/to/eZslf2XO">Join Waitlist</button>
-            <a href="index.html" class="btn-secondary">Back to Home</a>
-        </div>
-    </section>
+    <h2>Ready to Get Started?</h2>
+    <p>The Opening Range Bot will be available from December 2025. Join our waitlist to be notified at launch.</p>
+    <div class="cta-buttons">
+        <button class="btn-primary join-waitlist-btn">Join Waitlist</button>
+        <a href="index.html" class="btn-secondary">Back to Home</a>
+    </div>
+</section>
+
+<!-- Typeform embed -->
+<div id="typeform-popup" data-tf-live="01KB2F32SD1FN00BF7YW9ZYXBX" style="display: none;"></div>
+<script src="//embed.typeform.com/next/embed.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const joinBtn = document.querySelector('.join-waitlist-btn');
+    
+    joinBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Show Typeform popup
+        window.tf.createPopup('01KB2F32SD1FN00BF7YW9ZYXBX');
+    });
+});
+</script>
+
 
     <section class="section">
         <div class="notice">
