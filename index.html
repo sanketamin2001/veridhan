@@ -3,134 +3,858 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veridhan Research & Advisory | Investment Research & Advisory Firm</title>
-    <meta name="description" content="Investment research & advisory firm focused on clarity, ethics, and client-first perspective. Launching in 2026 after SEBI registration.">
+    <title>Opening Range (Strat-4) Bot - Veridhan Research & Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://veridhan.in">
-    <meta property="og:title" content="Veridhan Research & Advisory | Investment Research & Advisory Firm">
-    <meta property="og:description" content="Investment research & advisory firm focused on clarity, ethics, and client-first perspective. Launching in 2026 after SEBI registration.">
-    <meta property="og:image" content="https://veridhan.in/assets/og-preview.png">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f8f9fa;
+        }
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://veridhan.in">
-    <meta name="twitter:title" content="Veridhan Research & Advisory | Investment Research & Advisory Firm">
-    <meta name="twitter:description" content="Investment research & advisory firm focused on clarity, ethics, and client-first perspective. Launching in 2026 after SEBI registration.">
-    <meta name="twitter:image" content="https://veridhan.in/assets/og-preview.png">
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    <link rel="stylesheet" href="styles.css">
+        .navbar-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a472a;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav a:hover {
+            color: #1a472a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a472a 0%, #2d6e3f 100%);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .availability-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Key Metrics Section */
+        .metrics-overview {
+            background: white;
+            padding: 3rem 20px;
+        }
+
+        .metrics-overview .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1a472a;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            border-color: #1a472a;
+            box-shadow: 0 4px 12px rgba(26, 71, 42, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            color: #1a472a;
+            font-weight: 700;
+        }
+
+        .metric-value.positive {
+            color: #27ae60;
+        }
+
+        .metric-value.neutral {
+            color: #f39c12;
+        }
+
+        /* Performance Section */
+        .performance-section {
+            background: white;
+            padding: 3rem 20px;
+            margin-top: 2rem;
+        }
+
+        .performance-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .performance-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1a472a;
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .performance-box h3 {
+            color: #1a472a;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .performance-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .performance-item:last-child {
+            border-bottom: none;
+        }
+
+        .performance-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .performance-value {
+            color: #1a472a;
+            font-weight: 600;
+        }
+
+        /* Trade Statistics Table */
+        .table-section {
+            background: white;
+            padding: 3rem 20px;
+            margin-top: 2rem;
+        }
+
+        .table-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .stats-table thead {
+            background: #1a472a;
+            color: white;
+        }
+
+        .stats-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .stats-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .stats-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .stats-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Trade Direction Comparison */
+        .trade-direction {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .trade-direction {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .direction-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .direction-box h3 {
+            color: #1a472a;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .direction-stat {
+            margin-bottom: 1rem;
+        }
+
+        .direction-stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .direction-stat-value {
+            font-size: 1.5rem;
+            color: #1a472a;
+            font-weight: 700;
+        }
+
+        /* Risk Section */
+        .risk-section {
+            background: white;
+            padding: 3rem 20px;
+            margin-top: 2rem;
+        }
+
+        .risk-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .risk-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border: 2px solid #ffcccb;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .risk-card.good {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-color: #86efac;
+        }
+
+        .risk-card.neutral {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-color: #fcd34d;
+        }
+
+        .risk-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .risk-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a472a;
+        }
+
+        /* Strategy Details */
+        .strategy-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d6e3f 100%);
+            color: white;
+            padding: 3rem 20px;
+            margin-top: 2rem;
+        }
+
+        .strategy-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .strategy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .strategy-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .strategy-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-content ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-content li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .strategy-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 3rem 20px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-section .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: #1a472a;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #1a472a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2d6e3f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 71, 42, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a472a;
+            border: 2px solid #1a472a;
+        }
+
+        .btn-secondary:hover {
+            background: #1a472a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 20px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .navbar-nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .metric-value {
+                font-size: 1.5rem;
+            }
+
+            .stats-table th,
+            .stats-table td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Highlight section */
+        .highlight {
+            background: linear-gradient(135deg, rgba(26, 71, 42, 0.1) 0%, rgba(45, 110, 63, 0.1) 100%);
+            border-left: 4px solid #1a472a;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+
+        .highlight strong {
+            color: #1a472a;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <nav class="nav">
-        <div class="logo">
-            <div class="logo-mark">V</div>
-            Veridhan Research & Advisory
-        </div>
-        <div>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="technology.html">Technology</a>
-            <a href="contact.html">Contact</a>
-            <a href="disclaimer.html">Disclaimer</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">Veridhan</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#strategy">Strategy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <div class="notice">
-        <strong>🚀 AI-Powered Research Coming Soon:</strong> We're developing advanced AI technology to enhance research quality and insights. All tools will launch post-SEBI compliance in 2026. <a href="technology.html" style="text-decoration: underline;">Learn more →</a>
-    </div>
-
+    <!-- Hero Section -->
     <section class="hero">
-        <div>
-            <h1 class="h1">Research-First. Client-First. Future-Ready.</h1>
-            <p class="p">
-                We combine disciplined research with a long-term view. Veridhan Research & Advisory is preparing for SEBI registration and will open to clients in <strong>2026</strong>.
-            </p>
-            <p class="p">
-                Our upcoming <strong>AI-powered research engine</strong> will augment human expertise with cutting-edge technology to deliver deeper insights, smarter analysis, and better investment decisions.
-            </p>
-            <div class="btns">
-                <a href="services.html" class="btn primary">Our Services</a>
-                <a href="technology.html" class="btn">AI Technology</a>
-                <a href="about.html" class="btn">About Us</a>
-            </div>
+        <div class="container">
+            <div class="availability-badge">Available from December 2025</div>
+            <h1>Opening Range (Strat-4) Bot</h1>
+            <p class="hero-subtitle">Automated Trading Strategy with Proven Performance</p>
+            <p>A sophisticated automated trading bot designed to capitalize on opening range breakouts with disciplined risk management.</p>
         </div>
-        <div class="card pad">
-            <div class="kv">
-                <span class="badge">Status</span>
-                <span>SEBI Registration In Progress</span>
+    </section>
+
+    <!-- Key Metrics Overview -->
+    <section class="metrics-overview" id="performance">
+        <div class="container">
+            <h2 class="section-title">Key Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Net Profit</div>
+                    <div class="metric-value positive">$45,510.50</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Profit Factor</div>
+                    <div class="metric-value">1.40</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Monthly Profit (Avg)</div>
+                    <div class="metric-value positive">$3,568</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Win Rate</div>
+                    <div class="metric-value">41.95%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Sharpe Ratio</div>
+                    <div class="metric-value">0.59</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Max Drawdown</div>
+                    <div class="metric-value">-$6,181</div>
+                </div>
             </div>
-            <div class="kv">
-                <span class="badge">Launch</span>
-                <span>2026</span>
-            </div>
-            <div class="kv">
-                <span class="badge">Location</span>
-                <span>Gujarat</span>
+
+            <div class="highlight">
+                <strong>Backtested Period:</strong> November 1, 2024 - November 25, 2025 | <strong>Total Trades:</strong> 770 | <strong>Gross Profit:</strong> $159,787
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 style="font-size:28px;margin-bottom:16px;">What We Offer</h2>
-        <div class="grid grid-3">
-            <div class="card pad">
-                <h3 style="font-size:20px;margin-bottom:8px;">💼 Advisory Services</h3>
-                <p class="p" style="font-size:15px;">
-                    Goal-aligned advice focused on risk management and transparent processes. Services available post-SEBI authorization.
-                </p>
+    <!-- Performance Details -->
+    <section class="performance-section">
+        <div class="container">
+            <h2 class="section-title">Detailed Performance Analysis</h2>
+            
+            <div class="performance-grid">
+                <div class="performance-box">
+                    <h3>Financial Metrics</h3>
+                    <div class="performance-item">
+                        <span class="performance-label">Total Net Profit</span>
+                        <span class="performance-value">$45,510.50</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Gross Profit</span>
+                        <span class="performance-value">$159,787</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Gross Loss</span>
+                        <span class="performance-value">-$114,276</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Profit Factor</span>
+                        <span class="performance-value">1.40</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Average Trade</span>
+                        <span class="performance-value">$59.10</span>
+                    </div>
+                </div>
+
+                <div class="performance-box">
+                    <h3>Risk Management</h3>
+                    <div class="performance-item">
+                        <span class="performance-label">Max Drawdown</span>
+                        <span class="performance-value">-$6,181</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Sharpe Ratio</span>
+                        <span class="performance-value">0.59</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Sortino Ratio</span>
+                        <span class="performance-value">2.94</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Ulcer Index</span>
+                        <span class="performance-value">0.02</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Max Recovery Time</span>
+                        <span class="performance-value">74 days</span>
+                    </div>
+                </div>
             </div>
-            <div class="card pad">
-                <h3 style="font-size:20px;margin-bottom:8px;">🔍 Research Solutions</h3>
-                <p class="p" style="font-size:15px;">
-                    Independent equity & market research, frameworks, and insights designed to reduce noise and improve clarity.
-                </p>
-            </div>
-            <div class="card pad">
-                <h3 style="font-size:20px;margin-bottom:8px;">🎓 Education & Literacy</h3>
-                <p class="p" style="font-size:15px;">
-                    Workshops and resources to build financial literacy. Educational content may be published ahead of launch.
-                </p>
+
+            <div class="performance-grid">
+                <div class="performance-box">
+                    <h3>Trade Statistics</h3>
+                    <div class="performance-item">
+                        <span class="performance-label">Total Trades</span>
+                        <span class="performance-value">770</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Winning Trades</span>
+                        <span class="performance-value">323</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Losing Trades</span>
+                        <span class="performance-value">314</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Even Trades</span>
+                        <span class="performance-value">133</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Avg Winning Trade</span>
+                        <span class="performance-value">$494.70</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Avg Losing Trade</span>
+                        <span class="performance-value">-$363.94</span>
+                    </div>
+                </div>
+
+                <div class="performance-box">
+                    <h3>Consistency Metrics</h3>
+                    <div class="performance-item">
+                        <span class="performance-label">Win/Loss Ratio</span>
+                        <span class="performance-value">1.36</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Max Consecutive Wins</span>
+                        <span class="performance-value">30</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Max Consecutive Losses</span>
+                        <span class="performance-value">10</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Avg Trades/Day</span>
+                        <span class="performance-value">2.87</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Avg Time in Market</span>
+                        <span class="performance-value">35.57 min</span>
+                    </div>
+                    <div class="performance-item">
+                        <span class="performance-label">Monthly Profit</span>
+                        <span class="performance-value">$3,568.30</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 style="font-size:28px;margin-bottom:16px;">AI-Enhanced Research Capabilities</h2>
-        <div class="card pad">
-            <p class="p">
-                Veridhan is building proprietary <strong>AI research technology</strong> to complement human analysis and deliver superior insights. Our platform will feature:
-            </p>
-            <ul class="clean" style="margin-top: 12px;">
-                <li class="tile">🧠 <strong>Intelligent document analysis</strong> for faster processing of financial statements and reports</li>
-                <li class="tile">📊 <strong>Quantitative screening tools</strong> powered by machine learning algorithms</li>
-                <li class="tile">📈 <strong>Market sentiment analysis</strong> from news, social media, and alternative data</li>
-                <li class="tile">⚡ <strong>Real-time alerts</strong> for portfolio-relevant events and opportunities</li>
-            </ul>
-            <p class="p" style="margin-top: 16px;">
-                <strong>Note:</strong> AI tools will be launched only after SEBI registration and regulatory approvals. <a href="technology.html" style="text-decoration: underline;">Explore our technology roadmap →</a>
-            </p>
+    <!-- Trade Direction Comparison -->
+    <section class="performance-section">
+        <div class="container">
+            <h2 class="section-title">Long vs Short Trade Performance</h2>
+            
+            <div class="trade-direction">
+                <div class="direction-box">
+                    <h3>Long Trades</h3>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Total Trades</div>
+                        <div class="direction-stat-value">424</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Net Profit</div>
+                        <div class="direction-stat-value" style="color: #27ae60;">$24,072.50</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Win Rate</div>
+                        <div class="direction-stat-value">42.45%</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Sharpe Ratio</div>
+                        <div class="direction-stat-value">0.65</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Profit Factor</div>
+                        <div class="direction-stat-value">1.37</div>
+                    </div>
+                </div>
+
+                <div class="direction-box">
+                    <h3>Short Trades</h3>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Total Trades</div>
+                        <div class="direction-stat-value">346</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Net Profit</div>
+                        <div class="direction-stat-value" style="color: #27ae60;">$21,438.00</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Win Rate</div>
+                        <div class="direction-stat-value">41.33%</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Sharpe Ratio</div>
+                        <div class="direction-stat-value">0.43</div>
+                    </div>
+                    <div class="direction-stat">
+                        <div class="direction-stat-label">Profit Factor</div>
+                        <div class="direction-stat-value">1.43</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="notice">
-            <strong>📋 Regulatory Notice:</strong> Operations have <strong>not started yet</strong>. SEBI registration is currently in process. The company expects to commence services in <strong>2026</strong>.
+    <!-- Risk Metrics Section -->
+    <section class="risk-section">
+        <div class="container">
+            <h2 class="section-title">Risk Analysis</h2>
+            
+            <div class="risk-grid">
+                <div class="risk-card good">
+                    <div class="risk-label">Sortino Ratio</div>
+                    <div class="risk-value">2.94</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.9;">Excellent downside risk-adjusted return</p>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Largest Win</div>
+                    <div class="risk-value">$872</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.9;">Best single trade result</p>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Largest Loss</div>
+                    <div class="risk-value">-$872</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.9;">Maximum single trade loss</p>
+                </div>
+                <div class="risk-card good">
+                    <div class="risk-label">Ulcer Index</div>
+                    <div class="risk-value">0.02</div>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.9;">Very low volatility stress</p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Strategy Details -->
+    <section class="strategy-section" id="strategy">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Strategy Overview</h2>
+            
+            <div class="strategy-content">
+                <div>
+                    <h3>How It Works</h3>
+                    <ul>
+                        <li>Identifies opening range breakouts</li>
+                        <li>Executes trades with precise entry points</li>
+                        <li>Implements disciplined stop-loss management</li>
+                        <li>Adapts to market volatility</li>
+                        <li>Operates on intraday timeframes</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Automated trade execution 24/5</li>
+                        <li>Risk management built-in</li>
+                        <li>No emotional decision-making</li>
+                        <li>Consistent daily signals</li>
+                        <li>Real-time monitoring & alerts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                <p><strong>Note:</strong> The Opening Range (Strat-4) Bot has been backtested over 13 months with 770 trades, demonstrating consistent profitability and risk management. Past performance is not indicative of future results. Please consult with a financial advisor before deploying automated trading strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p class="cta-text">The Opening Range Bot will be available from December 2025. Join the waitlist to be notified when it launches.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Join Waitlist</button>
+                <a href="index.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        © 2025 Veridhan Research & Advisory. All rights reserved.<br>
-        Location: Anand, Gujarat • Email: contact@veridhan.in
+        <div class="container">
+            <p>&copy; 2025 Veridhan Research & Advisory. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">Preparing for SEBI Registration | Coming Soon 2026</p>
+        </div>
     </footer>
-</div>
 </body>
 </html>
