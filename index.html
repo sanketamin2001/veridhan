@@ -27,14 +27,16 @@
 
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Bot Banner Styles */
+        /* Bot Banner Styles - Updated with professional blue/teal gradient */
         .bot-banner {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
             color: white;
             padding: 1.5rem 0;
             position: relative;
             overflow: hidden;
             margin-bottom: 0;
+            border-bottom: 4px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 20px rgba(37,99,235,0.3);
         }
 
         .bot-banner::before {
@@ -44,8 +46,25 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+            background-size: cover;
+        }
+
+        .bot-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1));
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .bot-banner-content {
@@ -73,57 +92,71 @@
 
         .bot-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 0.4rem 1rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
             border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
         }
 
         .bot-banner h2 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin: 0.5rem 0;
-            font-weight: 700;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .bot-banner p {
             margin: 0;
             opacity: 0.95;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.5;
         }
 
         .bot-banner-button {
-            background: white;
-            color: #c44569;
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
+            background: rgba(255,255,255,0.95);
+            color: #1d4ed8;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
             cursor: pointer;
             white-space: nowrap;
             display: inline-block;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .bot-banner-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37,99,235,0.4);
+            background: white;
+            border-color: rgba(255,255,255,0.5);
         }
 
         @media (max-width: 768px) {
             .bot-banner {
-                padding: 1.2rem 0;
+                padding: 1.4rem 0;
             }
 
             .bot-banner h2 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
 
             .bot-banner p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+            }
+
+            .bot-banner-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
             }
         }
     </style>
