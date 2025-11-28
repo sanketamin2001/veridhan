@@ -451,6 +451,130 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+/* Waitlist Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #ffffff;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            padding: 1.8rem 1.8rem 1.5rem;
+            box-shadow: 0 20px 40px rgba(15,23,42,0.35);
+            position: relative;
+        }
+
+        .modal h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.3rem;
+            color: #0f172a;
+        }
+
+        .modal p {
+            margin: 0 0 1.2rem;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            border: none;
+            background: transparent;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .waitlist-form-group {
+            margin-bottom: 0.9rem;
+        }
+
+        .waitlist-form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.25rem;
+        }
+
+        .waitlist-form-group input,
+        .waitlist-form-group select,
+        .waitlist-form-group textarea {
+            width: 100%;
+            padding: 0.55rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid #cbd5f5;
+            font-size: 0.9rem;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .waitlist-form-group small {
+            display: block;
+            margin-top: 0.25rem;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .waitlist-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid #cbd5f5;
+            color: #0f172a;
+            padding: 0.55rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-submit {
+            background: #22c55e;
+            border: none;
+            color: white;
+            padding: 0.55rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-submit:hover {
+            background: #16a34a;
+        }
+
+        .waitlist-success {
+            display: none;
+            font-size: 0.9rem;
+            color: #16a34a;
+            margin-top: 0.6rem;
+        }
+        
     </style>
 </head>
 <body>
@@ -763,15 +887,16 @@
         </table>
     </section> -->
 
-    <!-- CTA Section -->
+   <!-- CTA Section -->
     <section class="bot-cta">
-    <h2>Ready to Get Started?</h2>
-    <p>The Opening Range Bot will be available from December 2025. Join our waitlist to be notified at launch.</p>
-    <div class="cta-buttons">
-        <button class="btn-primary join-waitlist-btn" onclick="window.tf.createPopup('01KB2F32SD1FN00BF7YW9ZYXBX')">Join Waitlist</button>
-        <a href="index.html" class="btn-secondary">Back to Home</a>
-    </div>
-</section>
+        <h2>Ready to Get Started?</h2>
+        <p>The Opening Range Bot will be available from December 2025. Join our waitlist to be notified at launch.</p>
+        <div class="cta-buttons">
+            <!-- CHANGED: removed old Typeform onclick -->
+            <button class="btn-primary join-waitlist-btn" id="open-waitlist-modal">Join Waitlist</button>
+            <a href="index.html" class="btn-secondary">Back to Home</a>
+        </div>
+    </section>
 
 <script src="//embed.typeform.com/next/embed.js"></script>
 
@@ -821,5 +946,98 @@
         Location: Gujarat, India • Email: <a href="mailto:contact@veridhan.in">contact@veridhan.in</a>
     </footer>
 </div>
+
+<!-- NEW: Waitlist Modal Form (replaces old Typeform popup) -->
+<div class="modal-overlay" id="waitlist-modal">
+    <div class="modal">
+        <button class="modal-close" id="close-waitlist-modal" aria-label="Close">&times;</button>
+        <h3>Join the Opening Range Bot Waitlist</h3>
+        <p>Share your details to be notified when the bot becomes available in December 2025.</p>
+
+        <form id="waitlist-form">
+            <div class="waitlist-form-group">
+                <label for="wl-name">Full Name</label>
+                <input type="text" id="wl-name" name="name" required>
+            </div>
+
+            <div class="waitlist-form-group">
+                <label for="wl-email">Email</label>
+                <input type="email" id="wl-email" name="email" required>
+            </div>
+
+            <div class="waitlist-form-group">
+                <label for="wl-country">Country</label>
+                <input type="text" id="wl-country" name="country">
+            </div>
+
+            <div class="waitlist-form-group">
+                <label for="wl-experience">Trading Experience</label>
+                <select id="wl-experience" name="experience">
+                    <option value="">Select...</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+
+            <div class="waitlist-form-group">
+                <label for="wl-notes">Anything you'd like us to know? (optional)</label>
+                <textarea id="wl-notes" name="notes" rows="3"></textarea>
+                <small>By submitting, you agree to be contacted about the Opening Range Bot and related updates.</small>
+            </div>
+
+            <div class="waitlist-actions">
+                <button type="button" class="btn-ghost" id="cancel-waitlist">Cancel</button>
+                <button type="submit" class="btn-submit">Submit</button>
+            </div>
+
+            <div class="waitlist-success" id="waitlist-success">
+                Thank you! You’ve been added to the waitlist.
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- SIMPLE JS TO HANDLE MODAL + BASIC SUBMIT UX -->
+<script>
+    const openBtn = document.getElementById('open-waitlist-modal');
+    const modal = document.getElementById('waitlist-modal');
+    const closeBtn = document.getElementById('close-waitlist-modal');
+    const cancelBtn = document.getElementById('cancel-waitlist');
+    const form = document.getElementById('waitlist-form');
+    const successMsg = document.getElementById('waitlist-success');
+
+    function openModal() {
+        modal.classList.add('active');
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+    // Close when clicking outside the modal
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Basic submit handling (you can replace with your backend / API)
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // TODO: send data via fetch/XHR to your backend or form service
+        successMsg.style.display = 'block';
+        form.querySelectorAll('input, textarea, select, button').forEach(el => {
+            if (!el.classList.contains('btn-submit') && !el.classList.contains('btn-ghost')) return;
+        });
+        // Optionally auto-close after a delay
+        setTimeout(closeModal, 2000);
+    });
+</script>
+    
 </body>
 </html>
