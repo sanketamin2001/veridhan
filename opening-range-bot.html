@@ -454,29 +454,30 @@
 
 /* Waitlist Modal Styles */
         .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.7);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 1rem;
-        }
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+}
 
-        .modal-overlay.active {
-            display: flex;
-        }
+.modal-overlay.active {
+    display: flex;
+}
 
-        .modal {
-            background: #ffffff;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 100%;
-            padding: 1.8rem 1.8rem 1.5rem;
-            box-shadow: 0 20px 40px rgba(15,23,42,0.35);
-            position: relative;
-        }
+.modal {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 720px;
+    box-shadow: 0 20px 40px rgba(15,23,42,0.35);
+    position: relative;
+    overflow: hidden;
+}
+
 
         .modal h3 {
             margin: 0 0 0.5rem;
@@ -893,7 +894,10 @@
         <p>The Opening Range Bot will be available from December 2025. Join our waitlist to be notified at launch.</p>
         <div class="cta-buttons">
             <!-- CHANGED: removed old Typeform onclick -->
-            <button class="btn-primary join-waitlist-btn" id="open-waitlist-modal">Join Waitlist</button>
+            <button class="btn-primary join-waitlist-btn" id="open-waitlist-modal">
+    Join Waitlist
+</button>
+
             <a href="index.html" class="btn-secondary">Back to Home</a>
         </div>
     </section>
@@ -949,63 +953,27 @@
 
 <!-- NEW: Waitlist Modal Form (replaces old Typeform popup) -->
 <div class="modal-overlay" id="waitlist-modal">
-    <div class="modal">
-        <button class="modal-close" id="close-waitlist-modal" aria-label="Close">&times;</button>
-        <h3>Join the Opening Range Bot Waitlist</h3>
-        <p>Share your details to be notified when the bot becomes available in December 2025.</p>
-
-        <form id="waitlist-form">
-            <div class="waitlist-form-group">
-                <label for="wl-name">Full Name</label>
-                <input type="text" id="wl-name" name="name" required>
-            </div>
-
-            <div class="waitlist-form-group">
-                <label for="wl-email">Email</label>
-                <input type="email" id="wl-email" name="email" required>
-            </div>
-
-            <div class="waitlist-form-group">
-                <label for="wl-country">Country</label>
-                <input type="text" id="wl-country" name="country">
-            </div>
-
-            <div class="waitlist-form-group">
-                <label for="wl-experience">Trading Experience</label>
-                <select id="wl-experience" name="experience">
-                    <option value="">Select...</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                </select>
-            </div>
-
-            <div class="waitlist-form-group">
-                <label for="wl-notes">Anything you'd like us to know? (optional)</label>
-                <textarea id="wl-notes" name="notes" rows="3"></textarea>
-                <small>By submitting, you agree to be contacted about the Opening Range Bot and related updates.</small>
-            </div>
-
-            <div class="waitlist-actions">
-                <button type="button" class="btn-ghost" id="cancel-waitlist">Cancel</button>
-                <button type="submit" class="btn-submit">Submit</button>
-            </div>
-
-            <div class="waitlist-success" id="waitlist-success">
-                Thank you! You’ve been added to the waitlist.
-            </div>
-        </form>
+    <div class="modal" style="max-width: 720px; padding: 0;">
+        <button class="modal-close" id="close-waitlist-modal" aria-label="Close" style="position:absolute;top:8px;right:10px;font-size:1.4rem;border:none;background:transparent;cursor:pointer;">&times;</button>
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSd1nzop-b4LeJDNGWQqlWvpOIqV1d_PdoFH-cDm1QSc74vAqA/viewform?embedded=true"
+            width="100%"
+            height="650"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+        >
+            Loading…
+        </iframe>
     </div>
 </div>
+
 
 <!-- SIMPLE JS TO HANDLE MODAL + BASIC SUBMIT UX -->
 <script>
     const openBtn = document.getElementById('open-waitlist-modal');
     const modal = document.getElementById('waitlist-modal');
     const closeBtn = document.getElementById('close-waitlist-modal');
-    const cancelBtn = document.getElementById('cancel-waitlist');
-    const form = document.getElementById('waitlist-form');
-    const successMsg = document.getElementById('waitlist-success');
 
     function openModal() {
         modal.classList.add('active');
@@ -1017,27 +985,17 @@
 
     if (openBtn) openBtn.addEventListener('click', openModal);
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
 
-    // Close when clicking outside the modal
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // Basic submit handling (you can replace with your backend / API)
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // TODO: send data via fetch/XHR to your backend or form service
-        successMsg.style.display = 'block';
-        form.querySelectorAll('input, textarea, select, button').forEach(el => {
-            if (!el.classList.contains('btn-submit') && !el.classList.contains('btn-ghost')) return;
+    // Close when clicking outside the modal content
+    if (modal) {
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
-        // Optionally auto-close after a delay
-        setTimeout(closeModal, 2000);
-    });
+    }
 </script>
+
     
 </body>
 </html>
