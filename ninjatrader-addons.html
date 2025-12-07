@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NinjaTrader Addons - Veridhan Research & Advisory</title>
-    <meta name="description" content="Professional NinjaTrader addons and indicators. Opening Range Bot, TradeCopierPro, and more automation tools for traders.">
+    <meta name="description" content="Professional NinjaTrader a...ge Bot, TradeCopierPro, and more automation tools for traders.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://veridhan.in/ninjatrader-addons.html">
     <meta property="og:title" content="NinjaTrader Addons - Veridhan">
-    <meta property="og:description" content="Professional trading automation tools for NinjaTrader. Opening Range Bot, TradeCopierPro, and more.">
+    <meta property="og:description" content="Professional tradin... for NinjaTrader. Opening Range Bot, TradeCopierPro, and more.">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -23,17 +23,15 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="styles.css">
+    
     <style>
         /* Bot Page Specific Styles */
-        body {
-            background-color: #f9f9f9;
-        }
 
         .bot-hero {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
             padding: 3rem 0;
-            margin-bottom: 2rem;
+            margin: 2rem 0 2rem;
         }
 
         .bot-page-container {
@@ -69,25 +67,24 @@
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .metric-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1.2rem;
-            border-radius: 6px;
-            text-align: center;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(148, 163, 184, 0.3);
         }
 
         .metric-label {
             font-size: 0.85rem;
-            opacity: 0.8;
+            color: #cbd5f5;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.4rem;
         }
 
         .metric-value {
@@ -151,13 +148,12 @@
 
         .product-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            background: rgba(15, 23, 42, 0.7);
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .product-body {
@@ -196,87 +192,95 @@
             font-size: 1rem;
         }
 
-        .product-card.copier .product-features li:before {
-            color: #3b82f6;
-        }
-
         .product-specs {
-            background: #f8fafc;
-            border-radius: 6px;
-            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem 1.5rem;
             margin-bottom: 1.5rem;
         }
 
         .spec-item {
             display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
+            flex-direction: column;
+            gap: 0.1rem;
         }
 
         .spec-label {
-            color: #64748b;
-            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            letter-spacing: 0.08em;
         }
 
         .spec-value {
-            color: #1e293b;
+            font-size: 0.95rem;
             font-weight: 600;
+            color: #0f172a;
         }
 
         .product-footer {
-            margin-top: auto;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
+            padding: 1rem 1.5rem 1.5rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .product-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 1rem;
         }
 
         .btn-explore {
-            width: 100%;
-            padding: 0.8rem;
-            background: #22c55e;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            background: #0f172a;
             color: white;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
             text-decoration: none;
-            display: block;
-            text-align: center;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
         }
 
         .btn-explore:hover {
-            background: #16a34a;
-            transform: translateY(-2px);
+            background: white;
+            color: #0f172a;
+            border-color: #0f172a;
         }
 
-        .product-card.copier .btn-explore {
-            background: #3b82f6;
-        }
-
-        .product-card.copier .btn-explore:hover {
-            background: #2563eb;
-        }
-
-        /* Notice Box */
+        /* Availability Badge / Notice */
         .notice-box {
-            background: #fef3c7;
-            border: 1px solid #fcd34d;
-            border-radius: 6px;
-            padding: 1.2rem;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
             margin-bottom: 2rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
         }
 
-        .notice-box strong {
-            color: #92400e;
+        .notice-icon {
+            font-size: 1.2rem;
         }
 
-        .notice-box p {
-            margin: 0;
-            color: #78350f;
+        .notice-content {
             font-size: 0.95rem;
-            line-height: 1.5;
+            color: #1e293b;
+        }
+
+        .notice-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .notice-subtext {
+            font-size: 0.85rem;
+            color: #4b5563;
         }
 
         /* CTA Section */
@@ -311,27 +315,32 @@
 
         .btn-primary {
             background: #22c55e;
-            color: white;
-            padding: 0.9rem 2.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
+            color: #052e16;
+            padding: 0.75rem 1.8rem;
+            border-radius: 999px;
             border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
             background: #16a34a;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35);
         }
 
         .btn-secondary {
             background: transparent;
             color: white;
-            padding: 0.9rem 2.2rem;
-            border-radius: 4px;
+            padding: 0.75rem 1.8rem;
+            border-radius: 999px;
             text-decoration: none;
             font-weight: 600;
             border: 2px solid white;
@@ -362,39 +371,43 @@
         }
 
         .benefit-item {
-            padding: 1rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px dashed #cbd5f5;
         }
 
         .benefit-title {
-            font-size: 1.1rem;
             font-weight: 600;
-            color: #1e293b;
             margin-bottom: 0.5rem;
+            color: #0f172a;
         }
 
         .benefit-description {
-            color: #475569;
             font-size: 0.9rem;
-            line-height: 1.5;
+            color: #475569;
+            line-height: 1.6;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
+            .bot-hero {
+                padding: 2.5rem 0;
+            }
+
             .bot-hero h1 {
                 font-size: 1.8rem;
             }
 
-            .bot-hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .section-heading {
-                font-size: 1.3rem;
-            }
-
-            .products-grid,
             .metrics-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .product-specs {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 2rem 1.5rem;
             }
 
             .cta-buttons {
@@ -411,11 +424,39 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* Waitlist Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #020617;
+            border-radius: 12px;
+            max-width: 720px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.8);
+            border: 1px solid #1e293b;
+            position: relative;
+            overflow: hidden;
+        }
+
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <div class="nav-wrapper">
+    <div class="container">
         <nav class="nav">
             <div class="logo">
                 <div class="logo-mark">V</div>
@@ -426,6 +467,7 @@
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="technology.html">Technology</a>
+                <a href="ninjatrader-addons.html">NinjaTrader AddOns</a>
                 <a href="contact.html">Contact</a>
                 <a href="disclaimer.html">Disclaimer</a>
             </div>
@@ -437,7 +479,7 @@
         <div class="bot-page-container">
             <div class="bot-hero-badge">🛠️ Professional Trading Tools</div>
             <h1>NinjaTrader Addons & Indicators</h1>
-            <p class="bot-hero-subtitle">Advanced automation, intelligent trading tools, and multi-account management for professional traders</p>
+            <p class="bot-hero-subtitle">Advanced automation, intelli...tools, and multi-account management for professional traders</p>
             
             <div class="metrics-grid">
                 <div class="metric-card">
@@ -460,55 +502,69 @@
     <div class="container">
         <!-- Availability Notice -->
         <div class="notice-box">
-            <strong>🚀 Available December 2025:</strong> <span style="color: #000;">NinjaTrader addons will be available for trading and use from December 2025. These are previews of our professional trading tools. Past performance is not indicative of future results. Please consult with a financial advisor before deploying any trading strategy.</span>
+            <div class="notice-icon">📢</div>
+            <div class="notice-content">
+                <div class="notice-title">Launching in December 2025</div>
+                <div>
+                    We are actively working on bringing our professional NinjaTrader addons and indicators to market.
+                    <br>Tools are currently under internal testing & review and will be made available after production validation and compliance.
+                    <div class="notice-subtext" style="margin-top: 0.25rem;">
+                        Tools will be available as educational and automation utilities. They are not financial advice or SEBI-registered services.
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Products Section -->
         <section class="products-section">
-            <h2 class="section-heading"><span style="color: #fff;">Our NinjaTrader Addons</span>span></h2>
+            <h2 class="section-heading">Our NinjaTrader Addons</h2>
             
             <div class="products-grid">
                 <!-- Opening Range Bot Card -->
                 <div class="product-card">
                     <div class="product-header">
                         <div class="product-name">Opening Range Bot</div>
-                        <span class="product-badge">Strategy</span>
+                        <span class="product-badge">Automated Strategy Bot</span>
                     </div>
                     <div class="product-body">
                         <p class="product-description">
-                            Advanced automated trading strategy designed for the opening range breakout pattern. Proven backtested performance with disciplined risk management.
+                            A fully automated opening range breakout bot designed for the first 1 hour of the market session. 
+                            It systematically executes trades based on a defined opening range logic with strict risk management.
                         </p>
-                        
                         <ul class="product-features">
-                            <li>45% win rate</li>
-                            <li>$50k+ net profit</li>
-                            <li>1.50 profit factor</li>
-                            <li>Low volatility</li>
-                            <li>Automated entries & exits</li>
-                            <li>Backtested 600+ trades</li>
+                            <li>Trades only during the first 1 hour of the session</li>
+                            <li>Configurable opening range parameters</li>
+                            <li>Automated entry, stop loss, and target management</li>
+                            <li>Risk-defined strategy per contract</li>
+                            <li>Works with pre-defined instruments & templates</li>
                         </ul>
 
                         <div class="product-specs">
                             <div class="spec-item">
-                                <span class="spec-label">Backtest Period:</span>
-                                <span class="spec-value">12 Months</span>
+                                <span class="spec-label">Instrument</span>
+                                <span class="spec-value">Index & Futures (configurable)</span>
                             </div>
                             <div class="spec-item">
-                                <span class="spec-label">Total Trades:</span>
-                                <span class="spec-value">770+</span>
+                                <span class="spec-label">Time Window</span>
+                                <span class="spec-value">First 60 minutes</span>
                             </div>
                             <div class="spec-item">
-                                <span class="spec-label">Best Trade:</span>
-                                <span class="spec-value">$1,250</span>
+                                <span class="spec-label">Risk Type</span>
+                                <span class="spec-value">Fixed per trade</span>
                             </div>
                             <div class="spec-item">
-                                <span class="spec-label">Max Loss:</span>
-                                <span class="spec-value">-$150</span>
+                                <span class="spec-label">Order Types</span>
+                                <span class="spec-value">Market / Limit / Stop (config)</span>
                             </div>
                         </div>
 
                         <div class="product-footer">
-                            <a href="opening-range-bot.html" class="btn-explore">View Details</a>
+                            <div class="product-note">
+                                This bot is designed purely as a rules-driven automation tool. It does not guarantee profits.
+                            </div>
+                            <a href="opening-range-bot.html" class="btn-explore">
+                                View Details
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -539,55 +595,101 @@
                                 <span class="spec-value">Up to 20</span>
                             </div>
                             <div class="spec-item">
-                                <span class="spec-label">Sync Speed:</span>
-                                <span class="spec-value">Real-Time</span>
+                                <span class="spec-label">Master / Slave Setup:</span>
+                                <span class="spec-value">1 master, multiple followers</span>
                             </div>
                             <div class="spec-item">
-                                <span class="spec-label">Order Types:</span>
-                                <span class="spec-value">All</span>
+                                <span class="spec-label">Trade Types:</span>
+                                <span class="spec-value">Market, Limit, Stop, OCO</span>
                             </div>
                             <div class="spec-item">
-                                <span class="spec-label">Modifications:</span>
-                                <span class="spec-value">Automatic</span>
+                                <span class="spec-label">Platforms:</span>
+                                <span class="spec-value">NinjaTrader 8</span>
                             </div>
                         </div>
 
                         <div class="product-footer">
-                            <a href="trade-copier-pro.html" class="btn-explore">View Details</a>
+                            <div class="product-note">
+                                Designed for prop firms, professional traders, and multi-account managers who need synchronized execution.
+                            </div>
+                            <a href="tradecopierpro.html" class="btn-explore">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Bots Placeholder -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">Additional Strategy Bots</div>
+                        <span class="product-badge">In Research & Development</span>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-description">
+                            We are actively researching and testing additional rule-based strategy bots for intraday and swing trading,
+                            aligned with risk-first principles and disciplined automation.
+                        </p>
+                        <ul class="product-features">
+                            <li>Trend-following and mean-reversion models</li>
+                            <li>Risk-defined multi-leg strategies</li>
+                            <li>Configurable parameters for advanced users</li>
+                            <li>Backtested before any public availability</li>
+                            <li>Focus on consistency and risk control over high-frequency trading</li>
+                        </ul>
+
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Status</span>
+                                <span class="spec-value">Under Research</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Release Window</span>
+                                <span class="spec-value">Post-2025 (no guarantee)</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Target Use</span>
+                                <span class="spec-value">Disciplined, rule-based traders</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Models</span>
+                                <span class="spec-value">To be finalized after internal validation</span>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-note">
+                                All strategies will undergo internal testing, robustness checks, and performance review before any release.
+                            </div>
+                            <a href="#waitlist" class="btn-explore" id="scroll-to-waitlist">
+                                Join Waitlist
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
+        <!-- Benefits Section -->
         <section class="benefits-section">
-            <h2 class="section-heading">Why Choose Veridhan Addons?</h2>
-            
+            <h2 class="section-heading">Built for Risk-First Automation</h2>
             <div class="benefits-grid">
                 <div class="benefit-item">
-                    <div class="benefit-title">✓ Backtested Performance</div>
+                    <div class="benefit-title">✓ Risk-First Design</div>
                     <div class="benefit-description">
-                        All strategies are rigorously backtested over extended periods with real market data to ensure reliability.
+                        All tools are built with a risk-first mindset — focusing on caps, controls, and rule-based execution rather than aggressive leverage.
                     </div>
                 </div>
 
                 <div class="benefit-item">
-                    <div class="benefit-title">✓ Real-Time Execution</div>
+                    <div class="benefit-title">✓ Rules-Based Execution</div>
                     <div class="benefit-description">
-                        Lightning-fast order execution and account synchronization with low latency optimization.
+                        Strategies are driven by predefined rules to minimize emotional bias and enforce consistency in execution.
                     </div>
                 </div>
 
                 <div class="benefit-item">
-                    <div class="benefit-title">✓ Disciplined Risk Management</div>
-                    <div class="benefit-description">
-                        Built-in risk controls, position sizing, and stop-loss management for consistent profitability.
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-title">✓ Professional Grade</div>
+                    <div class="benefit-title">✓ Professional Tooling</div>
                     <div class="benefit-description">
                         Designed for professional traders and prop traders managing multiple accounts.
                     </div>
@@ -613,15 +715,11 @@
         <section class="cta-section">
             <h2>Ready to Elevate Your Trading?</h2>
             <p>Join our waitlist and be notified when NinjaTrader addons launch in December 2025</p>
-            
-             <div class="cta-buttons">
-            <!-- CHANGED: removed old Typeform onclick -->
-            <button class="btn-primary join-waitlist-btn" id="open-waitlist-modal">
-    Join Waitlist
-</button>
-
-            <a href="index.html" class="btn-secondary">Back to Home</a>
-        </div>
+            <div class="cta-buttons">
+                <button type="button" class="btn-primary join-waitlist-btn" id="open-waitlist-modal">
+                    Join Waitlist
+                </button>
+                <a href="index.html" class="btn-secondary">Back to Home</a>
                 <a href="contact.html" class="btn-secondary">Get in Touch</a>
             </div>
         </section>
@@ -663,34 +761,39 @@
 
                 <div class="waitlist-form-group">
                     <label for="message">Additional Message</label>
-                    <textarea id="message" name="message" rows="3" placeholder="Tell us about your trading experience..."></textarea>
+                    <textarea id="message" name="message" rows="...aceholder="Tell us about your trading experience..."></textarea>
                 </div>
 
                 <div class="waitlist-actions">
                     <button type="button" class="btn-ghost" onclick="closeWaitlistModal()">Cancel</button>
-                    <button type="submit" class="btn-submit">Join Waitlist</button>
+                    <button type="submit" class="btn-primary">Submit</button>
                 </div>
 
-                <div class="waitlist-success" id="successMessage">
-                    ✓ Thank you! You've been added to our waitlist.
-                </div>
+                <p class="waitlist-privacy">
+                    We respect your privacy. Your details will only be used to communicate about NinjaTrader addons.
+                </p>
             </form>
         </div>
     </div> -->
 
-  <!-- Recommended Resources -->
-    <!-- Logos / Featured On Section -->
-<section class="featured-logos-section" style="padding: 2rem 0; margin-top: 3rem;">
-    <h2 style="text-align: center; font-size: 1.4rem; color: #fff; margin-bottom: 1.5rem; font-weight: 700;">
-        As Featured On
-    </h2>
-
-    <div class="featured-logos" style="
+    <!-- NinjaTrader & Kinetick Brand Logos Section -->
+<section style="
+    padding: 20px 0;
+    background-color: #0b1120;
+    text-align: center;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+">
+    <div style="
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 40px;
         flex-wrap: wrap;
+        color: #e5e7eb;
+        font-size: 0.9rem;
         opacity: 0.9;
     ">
         <img src="NinjaTrader_NTE_OW_RGB-600x100.png" alt="Logo 1" style="height: 45px;">
@@ -699,66 +802,72 @@
     </div>
 </section>
 
-
-
-
-
    <!-- Trading / Performance Disclaimer (added at bottom) -->
     <section class="section">
-        <div class="notice">
+     
+   <div class="notice">
             <strong>📋 Disclaimer:</strong>
-            <br><br><strong></strong>Past performance is not indicative of future results. All backtesting data presented herein is historical and was generated through trading a maximum of 10 micro Nasdaq futures contracts per trade. Actual performance may vary depending on contract sizing and maximum risk tolerance.
+            <br><br><strong></strong>Past performance is not ind...ay vary depending on contract sizing and maximum risk tolerance.
             <br><br><strong>Risk Disclosure:</strong>
-            <br>Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing ones’ financial security or lifestyle. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results. 
+            <br>Futures and forex trading contains substantial r...st performance is not necessarily indicative of future results. 
             <br><br><strong>Hypothetical Performance Disclosure: </strong>
-            <br>Hypothetical performance results have many inherent limitations, some of which are described below. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown; in fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program. One of the limitations of hypothetical performance results is that they are generally prepared with the benefit of hindsight. In addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can completely account for the impact of financial risk of actual trading. for example, the ability to withstand losses or to adhere to a particular trading program in spite of trading losses are material points which can also adversely affect actual trading results. There are numerous other factors related to the markets in general or to the implementation of any specific trading program which cannot be fully accounted for in the preparation of hypothetical performance results and all which can adversely affect trading results.
+            <br>Hypothetical performance results have many inher...ance results and all which can adversely affect trading results.
             <br><br><strong>Live Trade Room Disclosure:  </strong>
-            <br>This presentation is for educational purposes only and the opinions expressed are those of the presenter only. All trades presented should be considered hypothetical and should not be expected to be replicated in a live trading account. 
+            <br>This presentation is for educational purposes on...uld not be expected to be replicated in a live trading account. 
             <br><br><strong>Testimonial Disclosure: </strong>
-            <br>Testimonials appearing on this website may not be representative of other clients or customers and is not a guarantee of future performance or success.
+            <br>Testimonials appearing on this website may not b...stomers and is not a guarantee of future performance or success.
         </div>
     </section>
 
     <footer class="footer">
         © 2025 Veridhan Research & Advisory. All rights reserved.<br>
+        NinjaTrader®, NinjaScript®, and Kinetick® are registered trademarks of NinjaTrader Group, LLC. and its affiliates. <br>
+        Veridhan Research & Advisory is an independent third-party developer and is not affiliated with or endorsed by NinjaTrader Group, LLC.
+        <br>
         Location: Gujarat, India • Email: <a href="mailto:contact@veridhan.in">contact@veridhan.in</a>
     </footer>
-</div>
 
 <!-- NEW: Waitlist Modal Form (replaces old Typeform popup) -->
 <div class="modal-overlay" id="waitlist-modal">
     <div class="modal" style="max-width: 720px; padding: 0;">
-        <button class="modal-close" id="close-waitlist-modal" aria-label="Close" style="position:absolute;top:8px;right:10px;font-size:1.4rem;border:none;background:transparent;cursor:pointer;">&times;</button>
+        <button class="modal-close" id="close-waitlist-modal" aria-label="Close waitlist modal" style="position:absolute;top:10px;right:16px;font-size:24px;color:#94a3b8;border:none;background:transparent;cursor:pointer;">&times;</button>
         <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLSd1nzop-b4LeJDNGWQqlWvpOIqV1d_PdoFH-cDm1QSc74vAqA/viewform?embedded=true"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSd1nzo...4LeJDNGWQqlWvpOIqV1d_PdoFH-cDm1QSc74vAqA/viewform?embedded=true"
             width="100%"
             height="650"
             frameborder="0"
             marginheight="0"
             marginwidth="0"
         >
-            Loading…
+            
         </iframe>
     </div>
 </div>
 
-
-<!-- SIMPLE JS TO HANDLE MODAL + BASIC SUBMIT UX -->
 <script>
-    const openBtn = document.getElementById('open-waitlist-modal');
     const modal = document.getElementById('waitlist-modal');
+    const openBtn = document.getElementById('open-waitlist-modal');
     const closeBtn = document.getElementById('close-waitlist-modal');
 
     function openModal() {
-        modal.classList.add('active');
+        if (modal) {
+            modal.classList.add('active');
+        }
     }
 
     function closeModal() {
-        modal.classList.remove('active');
+        if (modal) {
+            modal.classList.remove('active');
+        }
     }
 
-    if (openBtn) openBtn.addEventListener('click', openModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (openBtn) {
+        openBtn.addEventListener('click', openModal);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
 
     // Close when clicking outside the modal content
     if (modal) {
