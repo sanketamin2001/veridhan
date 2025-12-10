@@ -1007,25 +1007,7 @@
     }
 
     
-    (function () {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (!navToggle || !navLinks) return;
-
-        navToggle.addEventListener('click', function () {
-            const isOpen = navLinks.classList.toggle('nav-links--open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        // Optional: close the menu when a link is clicked (common mobile UX)
-        navLinks.addEventListener('click', function (e) {
-            if (e.target.tagName.toLowerCase() === 'a') {
-                navLinks.classList.remove('nav-links--open');
-                navToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    })();
+  
 </script>
 
 </body>
