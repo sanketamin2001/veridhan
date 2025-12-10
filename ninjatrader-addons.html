@@ -474,6 +474,87 @@
             }
         }
 
+        /* Base nav layout */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+/* Wrap links so we can control them */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Links style (tweak if you already have .nav a rules) */
+.nav-links a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 0.95rem;
+}
+
+/* Hamburger button – hidden on desktop by default */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    height: 2px;
+    width: 100%;
+    background-color: #e5e7eb;
+    border-radius: 999px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .nav {
+        position: relative;
+    }
+
+    /* Show hamburger on mobile */
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Stack menu vertically, hidden by default */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: #0b1120;
+        border-top: 1px solid rgba(148, 163, 184, 0.3);
+        flex-direction: column;
+        padding: 0.75rem 1.25rem 1rem;
+        gap: 0.75rem;
+        display: none; /* hidden until toggled */
+        z-index: 50;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.25rem 0;
+    }
+
+    /* When menu is open */
+    .nav-links.nav-links--open {
+        display: flex;
+    }
+}
+
+
 
 
     </style>
@@ -481,22 +562,32 @@
 <body>
     <!-- Navigation -->
     <div class="container">
-        <nav class="nav">
-            <div class="logo">
-                <div class="logo-mark">V</div>
-                Veridhan Research & Advisory
-            </div>
-            <div>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="technology.html">Technology</a>
-                <a href="ninjatrader-addons.html">NinjaTrader AddOns</a>
-                <a href="contact.html">Contact</a>
-                <a href="disclaimer.html">Disclaimer</a>
-            </div>
-        </nav>
-    </div>
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-mark">V</div>
+            Veridhan Research & Advisory
+        </div>
+
+        <!-- Hamburger button -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </button>
+
+        <!-- Nav links -->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="technology.html">Technology</a>
+            <a href="ninjatrader-addons.html">NinjaTrader AddOns</a>
+            <a href="contact.html">Contact</a>
+            <a href="disclaimer.html">Disclaimer</a>
+        </div>
+    </nav>
+</div>
+
 
 
     <!-- Affiliate Banner -->
@@ -923,5 +1014,28 @@
         });
     }
 </script>
+    
+    <script>
+    (function () {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (!navToggle || !navLinks) return;
+
+        navToggle.addEventListener('click', function () {
+            const isOpen = navLinks.classList.toggle('nav-links--open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Optional: close the menu when a link is clicked (common mobile UX)
+        navLinks.addEventListener('click', function (e) {
+            if (e.target.tagName.toLowerCase() === 'a') {
+                navLinks.classList.remove('nav-links--open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+</script>
+
 </body>
 </html>
