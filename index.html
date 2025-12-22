@@ -27,6 +27,135 @@
 
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* AI Research Engine Banner Styles - Premium gradient */
+        .ai-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+            border-bottom: 4px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .ai-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .ai-banner::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(168, 85, 247, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 6s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .ai-banner-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .ai-banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .ai-banner-text {
+            flex: 1;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            box-shadow: 0 2px 12px rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-banner h2 {
+            font-size: 1.9rem;
+            margin: 0.5rem 0;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        .ai-banner p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+
+        .ai-banner-button {
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(168, 85, 247, 0.5);
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .ai-banner-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            border-color: rgba(168, 85, 247, 0.8);
+        }
+
         /* Bot Banner Styles - Updated with professional blue/teal gradient */
         .bot-banner {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
@@ -142,6 +271,23 @@
         }
 
         @media (max-width: 768px) {
+            .ai-banner {
+                padding: 1.4rem 0;
+            }
+
+            .ai-banner h2 {
+                font-size: 1.6rem;
+            }
+
+            .ai-banner p {
+                font-size: 0.95rem;
+            }
+
+            .ai-banner-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
             .bot-banner {
                 padding: 1.4rem 0;
             }
@@ -178,6 +324,18 @@
             <a href="disclaimer.html">Disclaimer</a>
         </div>
     </nav>
+
+    <!-- NEW AI Research Engine Banner -->
+    <section class="ai-banner">
+        <div class="ai-banner-content">
+            <div class="ai-banner-text">
+                <div class="ai-badge">🤖 AI-POWERED RESEARCH</div>
+                <h2>Veridhan AI Research Engine</h2>
+                <p>Proprietary machine learning platform delivering automated equity research, AI-driven insights, and intelligent market analysis. Democratizing institutional-grade research for retail investors.</p>
+            </div>
+            <a href="ai-research-engine.html" class="ai-banner-button">Discover More →</a>
+        </div>
+    </section>
 
     <section class="bot-banner">
         <div class="bot-banner-content">
@@ -317,7 +475,7 @@
             <strong>📋 Disclaimer:</strong>
             
             <br><br><strong>Risk Disclosure:</strong>
-            <br>Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing ones’ financial security or lifestyle. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results. 
+            <br>Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing ones' financial security or lifestyle. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results. 
             <br><br><strong>Hypothetical Performance Disclosure: </strong>
             <br>Hypothetical performance results have many inherent limitations, some of which are described below. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown; in fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program. One of the limitations of hypothetical performance results is that they are generally prepared with the benefit of hindsight. In addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can completely account for the impact of financial risk of actual trading. for example, the ability to withstand losses or to adhere to a particular trading program in spite of trading losses are material points which can also adversely affect actual trading results. There are numerous other factors related to the markets in general or to the implementation of any specific trading program which cannot be fully accounted for in the preparation of hypothetical performance results and all which can adversely affect trading results.
             <br><br><strong>Live Trade Room Disclosure:  </strong>
