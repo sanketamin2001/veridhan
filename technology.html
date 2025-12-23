@@ -26,23 +26,37 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="styles.css">
+    <script src="sidebar.js" defer></script>
 </head>
 <body>
-<div class="container">
-    <nav class="nav">
-        <div class="logo">
+    <!-- Hamburger Menu -->
+    <button class="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
             <div class="logo-mark">V</div>
-            Veridhan Research & Advisory LLP
+            <div class="logo-text">Veridhan Research & Advisory LLP</div>
         </div>
-        <div>
+        <nav class="sidebar-nav">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="ai-research-engine.html">Veridhan AI Research Engine</a>
             <a href="services.html">Services</a>
             <a href="technology.html">Technology</a>
+            <a href="ninjatrader-addons.html">NinjaTrader Add-ons</a>
+            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="disclaimer.html">Disclaimer</a>
-        </div>
-    </nav>
+        </nav>
+    </aside>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay"></div>
+
+<div class="container">
 
     <section class="section">
         <h1 class="h1">AI-Powered Research Technology</h1>
