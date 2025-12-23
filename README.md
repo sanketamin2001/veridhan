@@ -75,7 +75,7 @@ Replace `assets/og-preview.png` with your custom social media preview image:
 
 ## 📧 Contact
 - **Email**: contact@veridhan.in
-- **LinkedIn**: [https://www.linkedin.com/in/thesanketamin/](https://www.linkedin.com/company/veridhan-research-advisory)
+- **LinkedIn**: [https://www.linkedin.com/company/veridhan-research-advisory](https://www.linkedin.com/company/veridhan-research-advisory)
 
 ## ⚖️ License
 MIT License - see LICENSE file for details
