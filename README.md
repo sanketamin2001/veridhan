@@ -74,10 +74,8 @@ Replace `assets/og-preview.png` with your custom social media preview image:
 - Update path in all HTML files' `<meta property="og:image">` tags
 
 ## 📧 Contact
-- **Email**: contact.veridhan@gmail.com
-- **LinkedIn**: https://www.linkedin.com/in/thesanketamin/
-- **Phone**: +91 8460902001
-- **Address**: 35A, Vaishnav Parivar, near Nehru Baugh, Anand 388001
+- **Email**: contact@veridhan.in
+- **LinkedIn**: [https://www.linkedin.com/in/thesanketamin/](https://www.linkedin.com/company/veridhan-research-advisory)
 
 ## ⚖️ License
 MIT License - see LICENSE file for details
